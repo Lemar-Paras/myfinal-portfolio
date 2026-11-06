@@ -1,0 +1,97 @@
+/* About-only composition. Original portrait pixels and shared media stay intact. */
+#about { padding-block: 48px; min-height: 0; }
+#about .section-heading { margin-bottom: 20px; }
+#about .section-heading > .eyebrow { margin-bottom: 6px; }
+#about .section-heading h2 { font-size: clamp(52px, 4.4vw, 56px); line-height: 1.1; font-weight: 700; letter-spacing: -.045em; }
+#about .about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  max-width: 1040px;
+  align-items: start;
+  gap: clamp(40px, 4vw, 56px);
+}
+#about .about-portrait {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  min-width: 0;
+  padding: 4px 0;
+  isolation: isolate;
+  --reveal-x: -6px;
+  --reveal-y: 8px;
+}
+#about .portrait-halo {
+  position: absolute;
+  inset: -12px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 52%, #c5ff550e 0%, #c5ff5505 40%, transparent 72%);
+}
+#about .portrait-card {
+  position: relative;
+  padding: clamp(10px, 1.1vw, 14px);
+  border: 1px solid #3b4338;
+  border-radius: 14px;
+  background: #151719;
+  box-shadow: 0 12px 28px #00000028, inset 0 1px 0 #f4f2ed08;
+  animation: about-portrait-float 10s ease-in-out infinite;
+  animation-play-state: paused;
+}
+#about .about-portrait[data-animate='true'] .portrait-card { animation-play-state: running; }
+#about .portrait-window {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid #6a7264;
+  border-radius: 7px;
+  background: #0f1111;
+  isolation: isolate;
+}
+#about .portrait-window::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 24px #090a0b24;
+  pointer-events: none;
+}
+#about .profile-portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+#about .portrait-empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #b5c39f; }
+#about .portrait-empty > span { font-size: 64px; font-weight: 600; letter-spacing: -3px; }
+#about .portrait-empty > p { font-size: 12px; }
+#about .about-copy { min-width: 0; max-width: 600px; padding-top: 12px; }
+#about .about-copy h3 { margin-bottom: 14px; font-size: clamp(36px, 3vw, 40px); line-height: 1.18; font-weight: 600; letter-spacing: -.7px; }
+#about .about-copy > p { margin-bottom: 14px; color: #b1b6b4; font-size: clamp(19px, 1.4vw, 20px); line-height: 1.65; }
+#about .about-copy > p:last-of-type { margin-bottom: 0; }
+#about .about-note { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); color: #c5d5b5; font-size: clamp(17px, 1.3vw, 18px); line-height: 1.6; }
+@keyframes about-portrait-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@media (max-width: 900px) {
+  #about .about-layout { grid-template-columns: minmax(0, .4fr) minmax(0, .6fr); gap: 28px; }
+  #about .section-heading h2 { font-size: 46px; }
+  #about .about-copy { padding-top: 8px; }
+  #about .about-copy h3 { font-size: 32px; }
+  #about .about-copy > p { font-size: 17px; line-height: 1.65; }
+}
+@media (max-width: 600px) {
+  #about { padding-block: 40px; }
+  #about .section-heading { margin-bottom: 20px; }
+  #about .section-heading h2 { font-size: clamp(34px, 9vw, 42px); }
+  #about .about-layout { grid-template-columns: 1fr; gap: 20px; }
+  #about .about-portrait { max-width: 300px; justify-self: center; --reveal-x: 0px; --reveal-y: 8px; }
+  #about .about-copy { max-width: 100%; padding-top: 0; }
+  #about .about-copy h3 { font-size: clamp(28px, 7.5vw, 32px); }
+  #about .about-copy > p { font-size: 16px; margin-bottom: 12px; }
+  #about .about-copy > p:last-of-type { margin-bottom: 0; }
+  #about .about-note { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #about .portrait-card { animation: none; transform: none; }
+}

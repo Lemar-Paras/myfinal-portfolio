@@ -1,0 +1,72 @@
+﻿/* Phase 4: bounded, event-driven enhancements. Native input stays available. */
+html { scrollbar-gutter: stable; }
+
+.cursor-companion { position: fixed; top: 0; left: 0; z-index: 90; width: 0; height: 0; pointer-events: none; opacity: 0; transition: transform 95ms ease-out, opacity 120ms; }
+.cursor-companion[data-visible="true"] { opacity: 1; }
+.cursor-companion > span { position: absolute; width: 10px; height: 10px; left: -5px; top: -5px; border: 1px solid #c5ff55; border-radius: 50%; background: #c5ff5510; transform: scale(1); transition: transform 230ms var(--ease), background 230ms; }
+.cursor-companion[data-kind="action"] > span { transform: scale(2.2); }
+.cursor-companion[data-kind="project"] > span { transform: scale(3.6); background: #090a0bbd; }
+.cursor-companion small { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); font: 8px 'Courier New', monospace; color: #c5ff55; opacity: 0; transition: opacity 150ms; }
+.cursor-companion[data-kind="project"] small { opacity: 1; }
+
+.magnetic { display: inline-flex; max-width: 100%; vertical-align: middle; }
+.magnetic > .button, .magnetic > .project-title { transition: transform 450ms var(--ease), color 250ms, border-color 250ms, background 250ms; }
+.hero-actions > .magnetic { flex: 1; }
+.hero-actions .magnetic > .button { width: 100%; white-space: nowrap; }
+.button:active { opacity: .85; }
+.button:focus-visible svg, .project-title:focus-visible svg { transform: translate(3px, -3px); }
+.project-title svg { transition: transform 350ms var(--ease); }
+.project-title:hover svg { transform: translate(3px, -3px); }
+.project-preview:focus-visible { outline-offset: 5px; }
+.project-preview:focus-visible .preview-open { background: #c5ff55; color: #090a0b; }
+.preview-open { transition: transform 350ms var(--ease), color 250ms, background 250ms; }
+.project-preview:is(:hover, :focus-visible) .preview-open { transform: translate(2px, -2px); }
+.project-number { transition: color 250ms; }
+.project:is(:hover, :focus-within) .project-number { color: #c5ff55; }
+.project-preview { transition: border-color 300ms; }
+.project-preview:is(:hover, :focus-visible) { border-color: #8a9e6a; }
+.project-dialog[open]::backdrop { animation: backdrop-enter 240ms ease-out both; }
+.project-dialog[open][data-closing="true"]::backdrop { animation: backdrop-exit 170ms ease-in both; }
+.dialog-close { min-height: 44px; transition: color 200ms; }
+.dialog-close:hover { color: #c5ff55; }
+@keyframes backdrop-enter { from { background-color: #0000; } to { background-color: #000c; } }
+@keyframes backdrop-exit { from { background-color: #000c; } to { background-color: #0000; } }
+
+.word-mask { display: inline-block; overflow: hidden; vertical-align: bottom; padding-block: .09em .14em; margin-block: -.09em -.14em; }
+.word-reveal { display: inline-block; opacity: 1; transform: none; transition: transform 600ms var(--ease), opacity 450ms var(--ease); transition-delay: calc(var(--word-delay, 0ms) + var(--reveal-delay, 0ms)); }
+.will-reveal:not(.is-visible):not(:focus-within) .word-reveal { transform: translateY(115%); opacity: 0; }
+.will-reveal { transform: translate(var(--reveal-x, 0px), var(--reveal-y, 14px)); transition: opacity 600ms var(--ease), transform 650ms var(--ease); transition-delay: var(--reveal-delay, 0ms); }
+.will-reveal:is(.is-visible, :focus-within) { opacity: 1; transform: none; }
+.will-reveal:focus-within, .will-reveal:focus-within .word-reveal { transition-delay: 0ms; }
+.contact-form { --reveal-x: 8px; --reveal-y: 8px; }
+.name-line { animation-duration: 1000ms; }
+.name-outline { animation-delay: 110ms; }
+.scroll-track { animation-iteration-count: 3; }
+
+.timeline-arrow { transition: transform 300ms var(--ease); }
+.timeline-item:hover .timeline-arrow { transform: translate(3px, -3px); }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .magnetic:not(:focus-within) > :is(.button, .project-title):not(:active) { transform: translate(var(--surface-x, 0px), var(--surface-y, 0px)); }
+  .project-preview:is(:hover, :focus-visible) .project-art { transform: perspective(1000px) translate3d(var(--surface-x, 0px), var(--surface-y, 0px), 0) rotateX(var(--surface-rx, 0deg)) rotateY(var(--surface-ry, 0deg)) scale(1.018); }
+}
+@media (max-width: 900px) {
+  .hero-actions > .magnetic { flex: none; }
+}
+@media (max-width: 600px) {
+  .hero-actions > .magnetic { flex: 1; min-width: 0; }
+  .hero-actions .magnetic > .button { flex: 1; }
+  .will-reveal, .contact-form { --reveal-x: 0px; --reveal-y: 14px; }
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-companion { display: none; }
+  .magnetic > :is(.button, .project-title), .project-preview:hover .project-art { transform: none; }
+}
+@media (max-width: 360px) {
+  .hero-actions > .magnetic { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-companion { display: none; }
+  .will-reveal, .word-reveal, .magnetic > :is(.button, .project-title), .project-preview:is(:hover, :focus-visible) .project-art, .timeline-item:hover .timeline-arrow { opacity: 1; transform: none; transition: none; }
+  .button:is(:hover, :focus-visible) svg { transform: none; }
+}

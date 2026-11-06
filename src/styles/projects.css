@@ -1,0 +1,72 @@
+/* Projects and its dialog only; preserve the shared section and control system. */
+#projects { padding-block: clamp(48px, 5vw, 72px); }
+#projects .section-heading { margin-bottom: clamp(36px, 3.2vw, 46px); }
+#projects .section-heading > .eyebrow { margin-bottom: 10px; }
+#projects .heading-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+#projects .section-heading h2 { font-size: clamp(52px, 4.3vw, 60px); }
+#projects .heading-row > p { max-width: 560px; font-size: clamp(18px, 1.4vw, 20px); line-height: 1.6; }
+#projects .projects-list { gap: 0; }
+#projects .project { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 3.2vw, 46px); padding-block: 28px; border-bottom-color: #2c3233; }
+#projects .project:first-child { padding-top: 0; }
+#projects .project:last-child { padding-bottom: 0; }
+#projects .project-info { display: block; min-width: 0; }
+#projects .project-meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+#projects .project-info .eyebrow { font-size: 13px; line-height: 1.5; color: #adb3b2; letter-spacing: .04em; }
+#projects .project-number { font: 500 14px/1.5 'Segoe UI', Arial, sans-serif; color: #c5ff55; }
+#projects .project-info h3 { font-size: clamp(32px, 2.65vw, 38px); font-weight: 600; letter-spacing: -.035em; line-height: 1.2; overflow-wrap: anywhere; text-wrap: pretty; }
+#projects .project-description { margin-top: 14px; font-size: clamp(17px, 1.25vw, 18px); line-height: 1.65; color: #adb3b2; }
+#projects .project-tags { margin-top: 16px; gap: 8px; }
+#projects .project-tags span, #project-details .project-tags span { padding: 6px 10px; border-color: #353d37; border-radius: 6px; color: #d0d6c9; font-size: 14px; line-height: 1.5; }
+#projects .project-actions { gap: 10px; margin-top: 22px; }
+#projects .project-actions .button, #project-details .case-study-links .button { min-height: 46px; padding: 11px 15px; gap: 14px; border-radius: 8px; font-size: 14px; }
+#projects .project-actions .button:first-child { border-color: #586744; background: #c5ff5507; }
+
+/* Reserve a caption strip so labels never obscure the supplied interface. */
+#projects .project-preview, #project-details .case-study-preview { position: relative; aspect-ratio: 16 / 10; max-height: none; border: 1px solid #343b3b; border-radius: 14px; background: #151719; overflow: hidden; cursor: default; }
+#projects .project-art, #project-details .case-study-preview .project-art { inset: 12px 12px 44px; border-radius: 6px; transition: transform 300ms var(--ease); }
+#projects .screenshot-art img { object-fit: contain; }
+#projects .preview-disclaimer, #project-details .preview-disclaimer { left: 14px; bottom: 12px; max-width: calc(100% - 28px); padding: 0; color: #b7bfba; background: none; font-size: 11px; line-height: 1.5; }
+#projects .project--provisional .preview-disclaimer, #project-details .case-study-preview .preview-disclaimer { font-size: 11px; }
+@media (hover: hover) and (pointer: fine) {
+  #projects .project-preview:hover { border-color: #758960; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  #projects .project-preview:hover .project-art { transform: scale(1.012); }
+}
+
+#project-details { border-color: #48523e; border-radius: 16px; background: #151719; width: min(960px, calc(100% - 32px)); }
+#project-details .dialog-content { padding: clamp(20px, 3vw, 36px); }
+#project-details .dialog-content h2 { font-size: clamp(28px, 3vw, 38px); line-height: 1.2; }
+#project-details .dialog-content > p:not(.eyebrow) { font-size: 16px; }
+#project-details .case-study h3 { font-size: 19px; color: #f4f2ed; }
+#project-details .case-study p, #project-details .case-study li { color: #b8bfbc; font-size: 16px; line-height: 1.7; }
+#project-details .case-study > section, #project-details .case-study-grid, #project-details .case-study-links { margin-top: 22px; padding-top: 20px; border-color: #343b38; }
+#project-details .case-study-grid > section:only-child { grid-column: 1 / -1; }
+#project-details .screenshot-gallery { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+#project-details .screenshot-gallery img { background: #111415; border-color: #363e39; border-radius: 8px; }
+#project-details .screenshot-gallery figcaption { font-size: 13px; color: #b8bfbc; }
+#project-details .screenshot-gallery figcaption a { width: fit-content; min-height: 44px; display: flex; align-items: center; }
+#project-details .case-study-preview { max-width: 560px; }
+@media (max-width: 900px) {
+  #projects .project { gap: 28px; }
+  #projects .project-info h3 { font-size: 30px; }
+  #projects .project-description { font-size: 16px; }
+}
+@media (max-width: 760px) {
+  #projects .project { grid-template-columns: minmax(0, 1fr); gap: 22px; padding-block: 26px; }
+  #projects .project-preview { aspect-ratio: 16 / 10; }
+}
+@media (max-width: 600px) {
+  #projects { padding-block: 44px; }
+  #projects .section-heading h2 { font-size: clamp(34px, 8.5vw, 46px); }
+  #projects .heading-row { gap: 12px; }
+  #projects .heading-row > p { font-size: 16px; }
+  #projects .project-info h3 { font-size: clamp(26px, 6vw, 30px); }
+  #projects .project-meta { margin-bottom: 10px; }
+  #projects .project-actions .button { padding-inline: 12px; gap: 10px; font-size: 13px; }
+  #projects .project-art, #project-details .case-study-preview .project-art { inset: 8px 8px 44px; }
+  #projects .preview-disclaimer, #project-details .preview-disclaimer { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #projects .project-preview, #projects .project-art { transform: none; transition: none; }
+}

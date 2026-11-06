@@ -1,0 +1,74 @@
+{
+    "repository":  "https://github.com/devicons/devicon",
+    "commit":  "32fe1d3b3f36ad11f90ab94f7db59738139c2bf6",
+    "icons":  [
+                  {
+                      "name":  "java",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/java/java-original.svg"
+                  },
+                  {
+                      "name":  "php",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/php/php-original.svg"
+                  },
+                  {
+                      "name":  "tailwindcss",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/tailwindcss/tailwindcss-original.svg"
+                  },
+                  {
+                      "name":  "alpinejs",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/alpinejs/alpinejs-original.svg"
+                  },
+                  {
+                      "name":  "laravel",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/laravel/laravel-original.svg"
+                  },
+                  {
+                      "name":  "mysql",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/mysql/mysql-original.svg"
+                  },
+                  {
+                      "name":  "vite",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/vitejs/vitejs-original.svg"
+                  },
+                  {
+                      "name":  "javascript",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/javascript/javascript-original.svg"
+                  },
+                  {
+                      "name":  "python",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/python/python-original.svg"
+                  },
+                  {
+                      "name":  "dart",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/dart/dart-original.svg"
+                  },
+                  {
+                      "name":  "html5",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/html5/html5-original.svg"
+                  },
+                  {
+                      "name":  "css3",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/css3/css3-original.svg"
+                  },
+                  {
+                      "name":  "supabase",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/supabase/supabase-original.svg"
+                  },
+                  {
+                      "name":  "flutter",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/flutter/flutter-original.svg"
+                  },
+                  {
+                      "name":  "xampp",
+                      "source":  "https://raw.githubusercontent.com/simple-icons/simple-icons/e451c581fccb01b56f47e1a77292bdd1fd95b1a4/icons/xampp.svg",
+                      "repository":  "https://github.com/simple-icons/simple-icons",
+                      "commit":  "e451c581fccb01b56f47e1a77292bdd1fd95b1a4",
+                      "modification":  "Applied brand orange fill #FB7A24",
+                      "license":  "SIMPLE-ICONS-LICENSE.md"
+                  },
+                  {
+                      "name":  "react",
+                      "source":  "https://raw.githubusercontent.com/devicons/devicon/32fe1d3b3f36ad11f90ab94f7db59738139c2bf6/icons/react/react-original.svg"
+                  }
+              ]
+}
